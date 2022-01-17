@@ -86,3 +86,49 @@ export const getAllPublications = async ({ page = 1, filter = "all" }) => {
     throw error;
   }
 };
+
+export const getAllCategories = async () => {
+  const { access_token } = getAccessToken();
+  try {
+    return axios.get(apiConfig.CATEGORY_URL, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const searchPublication = async (input: string) => {
+  const { access_token } = getAccessToken();
+  const queryParams = new URLSearchParams({ limit: 10 } as unknown as Record<
+    string,
+    string
+  >);
+  try {
+    queryParams.append("query[0][field]", "name");
+    queryParams.append("query[0][type]", "like");
+    queryParams.append("query[0][value]", `%${input}%`);
+    return axios.get(`${apiConfig.PROJECTS_URL}?${queryParams.toString()}`, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getOnePublication = async (id: string) => {
+  const { access_token } = getAccessToken();
+  try {
+    return axios.get(`${apiConfig.PROJECTS_URL}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};

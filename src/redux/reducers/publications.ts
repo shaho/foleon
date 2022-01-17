@@ -19,11 +19,13 @@ export const publicationsReducer = (
 ) => {
   switch (action.type) {
     case ActionTypes.GET_ALL_PUBLICATIONS_LOADING:
+    case ActionTypes.GET_ONE_PUBLICATIONS_LOADING:
       return {
         ...state,
         loading: true,
       };
     case ActionTypes.GET_ALL_PUBLICATIONS_ERROR:
+    case ActionTypes.GET_ONE_PUBLICATIONS_ERROR:
       return {
         ...state,
         error: true,
@@ -38,6 +40,8 @@ export const publicationsReducer = (
         page: 1,
         filter: action.payload?.filter,
       };
+    case ActionTypes.GET_ONE_PUBLICATIONS:
+      return { ...state, selectedItem: action.payload };
     default:
       return state;
   }
