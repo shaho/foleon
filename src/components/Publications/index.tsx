@@ -24,12 +24,7 @@ export default function Publications({
         ) : (
           publications.list?.map((item) => (
             <li key={item.id}>
-              <Card
-                id={item.id}
-                link={`/publication/${item.id}`}
-                name={item.name}
-                category={item.category}
-              />
+              <Card id={item.id} name={item.name} category={item.category} />
             </li>
           ))
         )}

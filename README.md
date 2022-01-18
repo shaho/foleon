@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.foleon.com/">
-    <img alt="foleon.com" src="https://www.foleon.com/" width="60" />
+    <img alt="foleon.com" src="https://mma.prnewswire.com/media/824486/Foleon_Logo.jpg" width="200" />
   </a>
 </p>
 <h1 align="center">

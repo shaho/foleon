@@ -24,6 +24,7 @@ export default function Categories({
             {categories.list.map((category) => (
               <Tag
                 key={category.key}
+                id={category.key}
                 onClick={() => onItemClicked(category)}
                 className={filter === category.key ? "active" : ""}
               >

@@ -6,15 +6,9 @@ export interface CardProps {
   id: number;
   name: string;
   category?: string;
-  link: string;
 }
 
-export default function Card({
-  id,
-  name,
-  category,
-  link,
-}: CardProps): JSX.Element {
+export default function Card({ id, name, category }: CardProps): JSX.Element {
   return (
     <Box>
       <Link to={`/publication/${id}`}>

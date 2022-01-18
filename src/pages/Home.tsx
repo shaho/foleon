@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import Publications from "../components/Publications";
 import Categories from "../components/Categories";
-
+import Search from "../components/Search";
 import {
   getAllCategoriesAction,
   getAllPublicationsAction,
@@ -12,7 +12,6 @@ import {
 } from "../redux/actions";
 import { RootState } from "../redux/store";
 import { Category } from "../types";
-import Search from "../components/Search";
 
 export default function Home() {
   const dispatch = useDispatch();
