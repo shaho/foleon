@@ -26,7 +26,6 @@ export const categoriesReducer = (
       };
     case ActionTypes.GET_ALL_CATEGORIES:
       return {
-        ...state,
         ...action.payload,
         list: [{ key: "all", name: "All" }, ...(action.payload?.list || [])],
         error: false,

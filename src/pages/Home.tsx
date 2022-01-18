@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "bootstrap/dist/css/bootstrap.css";
 
 import Layout from "../components/Layout";
 import Publications from "../components/Publications";
@@ -34,24 +33,22 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <Layout title="Publications">
-        <Search
-          searchFormSubmitted={(input) =>
-            dispatch(searchPublicationsAction(input))
-          }
-        />
-        <Categories
-          categories={categories}
-          onItemClicked={handleCategoryClicked}
-          filter={publications.filter}
-        />
+    <Layout title="Publications">
+      <Search
+        searchFormSubmitted={(input) =>
+          dispatch(searchPublicationsAction(input))
+        }
+      />
+      <Categories
+        categories={categories}
+        onItemClicked={handleCategoryClicked}
+        filter={publications.filter}
+      />
 
-        <Publications
-          publications={publications}
-          onPageChange={handleOnPageChange}
-        />
-      </Layout>
-    </div>
+      <Publications
+        publications={publications}
+        onPageChange={handleOnPageChange}
+      />
+    </Layout>
   );
 }

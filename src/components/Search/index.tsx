@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { SearchBox, Btn, Input } from "./styles";
+import { SearchWrapper, Box, SearchButton, SerachInput } from "./styles";
 
 interface SearchProps {
   searchFormSubmitted: (input: string) => void;
@@ -9,28 +9,31 @@ interface SearchProps {
 export default function Search({
   searchFormSubmitted,
 }: SearchProps): JSX.Element {
-  const [val, setVal] = useState("");
+  const [searchValue, setSearchValue] = useState<string>("");
 
-  const handleChange = (e: any) => setVal(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setSearchValue(e.target.value);
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    searchFormSubmitted(val.trim());
+    searchFormSubmitted(searchValue.trim());
   };
 
   return (
-    <SearchBox>
-      <form onSubmit={(e) => handleSearch(e)}>
-        <Input
-          type="text"
-          className="input"
-          name=""
-          onChange={handleChange}
-          placeholder="Type somthing to search"
-          value={val}
-        />
-        <Btn type="submit">Search</Btn>
-      </form>
-    </SearchBox>
+    <SearchWrapper>
+      <Box>
+        <form onSubmit={(e) => handleSearch(e)}>
+          <SerachInput
+            type="text"
+            className="input"
+            name=""
+            onChange={handleChange}
+            placeholder="Type somthing to search..."
+            value={searchValue}
+          />
+          <SearchButton type="submit">Search</SearchButton>
+        </form>
+      </Box>
+    </SearchWrapper>
   );
 }

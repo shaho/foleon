@@ -41,7 +41,10 @@ export const publicationsReducer = (
         filter: action.payload?.filter,
       };
     case ActionTypes.GET_ONE_PUBLICATIONS:
-      return { ...state, selectedItem: action.payload };
+      return {
+        ...state,
+        selectedItem: action.payload,
+      };
     default:
       return state;
   }

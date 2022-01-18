@@ -4,6 +4,7 @@ export interface Publication {
   name: string;
   category: string;
   level: string;
+  created_on: Date;
 }
 
 export interface PublicationStateType {

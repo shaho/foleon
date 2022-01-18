@@ -16,17 +16,22 @@ export default function Categories({
   return (
     <>
       <Wrapper>
-        {categories.loading && <Spinner />}
-        {!categories.loading && <h4>Categories</h4>}
-        {categories.list.map((category) => (
-          <Tag
-            key={category.key}
-            onClick={() => onItemClicked(category)}
-            className={filter === category.key ? "active" : ""}
-          >
-            {category.name}
-          </Tag>
-        ))}
+        {categories.loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <h4>Categories</h4>
+            {categories.list.map((category) => (
+              <Tag
+                key={category.key}
+                onClick={() => onItemClicked(category)}
+                className={filter === category.key ? "active" : ""}
+              >
+                {category.name}
+              </Tag>
+            ))}
+          </>
+        )}
       </Wrapper>
     </>
   );
